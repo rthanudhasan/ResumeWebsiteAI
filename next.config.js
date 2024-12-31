@@ -1,6 +1,8 @@
+// next.config.js
 module.exports = {
-  //... other configurations ...
   env: {
-    file: 'environment.env', // or 'next.env'
+    AZURE_OPENAI_ENDPOINT: process.env.AZURE_OPENAI_ENDPOINT,
+    AZURE_OPENAI_API_KEY: process.env.AZURE_OPENAI_API_KEY,
+    AZURE_OPENAI_MODEL: process.env.AZURE_OPENAI_MODEL,
   },
-}
+};
