@@ -45,6 +45,9 @@ export default function Home() {
         <nav>
           <ul id="menu" className={menuOpen ? "active" : ""}>
             <li>
+			  <a href="#AiChatbot" className="aibutton">Try AI Chatbot</a>
+			</li>
+			<li>
               <a href="#">Home</a>
             </li>
             <li>
@@ -105,7 +108,7 @@ export default function Home() {
 				<img src="./imgs/html.png" alt="HTML" width="128" />
 				<img src="./imgs/css.png" alt="CSS" width="128" />
 				<img src="./imgs/javascript.png" alt="JS" width="128" />
-				<img src="./imgs/PATH.png" width="128" alt="UiPath" />
+				<img src="./imgs/path.png" width="128" alt="UiPath" />
 				<img src="./imgs/Prism.png" width="128" alt="Prism" />
 				<img src="./imgs/AWS.png" width="128" alt="AWS" />
 				<img src="./imgs/azure.png" width="128" alt="Azure" />
@@ -330,7 +333,7 @@ export default function Home() {
 				</article>
           </div>
         </section>
-        <section className="chatbot container">
+        <section id="AiChatbot" className="chatbot container">
           <h2>
             <small>
               Talk to me

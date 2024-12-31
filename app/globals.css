@@ -17,6 +17,9 @@
 	--blue-100: #e2f8ff;
 	--blue-400: #61dafb;
 	--blue-800: #0a61ae;
+	--red: #FF0000;
+	--red-100: #FFC5C5;
+	--red-800: #8B0A0A;
 }
 
 body {
@@ -146,6 +149,35 @@ section {
 	display:inline-block;
 	padding:10px 30px;
 	background-color: var(--blue);
+	color: var(--base-100);
+	border-radius:10px;
+	transition: ease 0.3s all;
+	&:hover {
+		text-decoration:none;
+		background-color: var(--base-800);
+	}
+	&.white {
+		background-color: white;
+		color: var(--base-800);
+		&:hover {
+			background-color: var(--base-100);
+			color: var(--base);
+		}
+	}
+	&.black {
+		background-color: black;
+		color: white;
+		&:hover {
+			background-color: var(--base);
+			color: var(--base-100);
+		}
+	}
+}
+
+.aibutton {
+	display:inline-block;
+	padding:10px 30px;
+	background-color: var(--red-800);
 	color: var(--base-100);
 	border-radius:10px;
 	transition: ease 0.3s all;
