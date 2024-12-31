@@ -345,6 +345,12 @@ h3 {
 				margin-top:20px;
 				margin-bottom:10px;
 			}
+			h6 {
+				font-size: 14px;
+				font-style: italic;
+				font-weight: normal;
+				text-decoration: underline;
+			}
 			div {
 				font-weight:600;
 				margin-bottom:5px;
@@ -352,6 +358,7 @@ h3 {
 			}
 			p {
 				margin-bottom:10px;
+				font-size: 16px;
 			}
 			figure {
 				width:100%;

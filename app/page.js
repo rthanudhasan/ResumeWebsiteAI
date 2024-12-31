@@ -224,7 +224,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>Sr. Software Developer (Intelligent Automation)</h5>
-					<div>May 2024 – Till Date</div>
+					<div><h6>May 2024 – Till Date</h6></div>
 					<p>Implemented RPA automation for Fixed Assets and Accounts Payable teams, utilizing tools like ABBYY, Appzen, and UiPath. Successfully optimized business processes, achieving 95% automation success rates through efficient exception handling and API integration.</p>
 				</article>
 				<article>
@@ -237,7 +237,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>RPA Developer/Architect</h5>
-					<div>June 2019 – May 2024</div>
+					<div><h6>June 2019 – May 2024</h6></div>
 					<p>Collaborated with senior leaders to design and implement RPA solutions, reducing annual expenses by $500,000 and generating over $1 million in revenue. Successfully optimized business processes, improving efficiency by 35% on average, and maintained high data quality and accuracy through API integration and best practices.</p>
 				</article>
 				<article>
@@ -250,7 +250,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>RPA Developer</h5>
-					<div>February 2017 – June 2019</div>
+					<div><h6>February 2017 – June 2019</h6></div>
 					<p>Developed and implemented RPA automation solutions for PPM projects using UiPath and RobotFramework, increasing automation footprint coverage from 40% to 82%. Successfully designed and executed automated test suites, reducing regression cycle time from 60 days to 20 days, and provided process improvements through business process analysis and documentation.</p>
 				</article>
 				<article>
@@ -263,7 +263,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>Summer Intern – RPA Analyst</h5>
-					<div>June 2016 – August 2016</div>
+					<div><h6>June 2016 – August 2016</h6></div>
 					<p>Implemented end-to-end RPA solutions using UiPath, automating manual processes and integrating various applications. Collaborated with cross-functional teams to develop and deliver product features, managed backlogs, and ensured successful User Acceptance Testing (UAT) and user adoption.</p>
 				</article>
 				<article>
@@ -276,7 +276,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>Analyst</h5>
-					<div>December 2011 – July 2015</div>
+					<div><h6>December 2011 – July 2015</h6></div>
 					<p>Led a team of junior analysts and managed functional design across multiple product lines, utilizing Waterfall and Agile methodologies. Designed and implemented RPA solutions, engineered product designs, and provided training and support, ensuring seamless integration of technical and business processes.</p>
 				</article>            
           </div>
@@ -299,7 +299,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>Master's in Engineering Management</h5>
-					<div>January 2016 – December 2016</div>
+					<div><h6>January 2016 – December 2016</h6></div>
 					<p>Earned a Master of Science in Engineering Management with a perfect 4.0 GPA, demonstrating academic excellence and a strong foundation in engineering management principles. Completed graduate coursework in key areas including Information Systems, Engineering Law, Technical Project Management, and Quality Assurance, enhancing expertise in managing complex engineering projects.</p>
 				</article>
 				<article>
@@ -312,7 +312,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>Master's in Management Information System</h5>
-					<div>August 2015 – December 2015</div>
+					<div><h6>August 2015 – December 2015</h6></div>
 					<p>Pursued a Master of Science in Management Information Systems, completing graduate coursework in critical areas such as Computer and Information Security, Computer Networks, and Data Structures. After the first semester, transferred to Christian Brothers University (CBU) to continue academic pursuits, ultimately completing a Master's degree in Engineering Management.</p>
 				</article>
 				<article>
@@ -325,7 +325,7 @@ export default function Home() {
 						</div>
 					</figure>
 					<h5>Bachelor’s in computer science</h5>
-					<div>June 2007 – May 2011</div>
+					<div><h6>June 2007 – May 2011</h6></div>
 					<p>Earned a Bachelor of Technology in Computer Science and Engineering, establishing a solid foundation in computer science principles and software engineering methodologies. Completed undergraduate coursework in a range of technical areas, including Software Engineering, Data Structures, Algorithms, Computer Architecture, and Business Intelligence, preparing for a career in software development and technology management.</p>
 				</article>
           </div>
