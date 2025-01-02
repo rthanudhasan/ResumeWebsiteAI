@@ -77,7 +77,7 @@ projects that generated over a million dollars in revenue annually.
 dispatcher, performer BOTs, queues, and triggers. 
 ● Designed stable/reusable and scalable RPA solutions for automation involving Oracle EBS ERP using the UiPath 
 RE framework and followed the best practices agreed upon in the organization. 
-● Coordinated with the CoE and the stakeholders on the best practices for RPA solutions. 
+● Managed and led an offshore team based in Serbia, coordinating with both the team and stakeholders to implement best practices for RPA solutions. 
 ● Started identifying processes using Process Mining and improved them using Communications Mining, and 
 Document Understanding. 
 ● Optimized most processes by utilizing API and improved its efficiency by 35% on average while maintaining high 
