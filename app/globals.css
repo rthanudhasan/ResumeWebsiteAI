@@ -375,13 +375,13 @@ h3 {
 .typed-role {
 	color: var(--blue-800);
 	font-weight: 700;
+	font-size: 0.9em;
+	letter-spacing: 0.5px;
 }
 
 .typing-cursor {
-	display: inline-block;
-	margin-left: 2px;
+	margin-left: -2px; /* removes tiny gap */
 	animation: blinkCursor 0.9s step-end infinite;
-	color: var(--base-800);
 }
 
 @keyframes blinkCursor {
