@@ -116,9 +116,12 @@ export default function Home() {
             <div>
               <h1>
 				  <small>
-				    Hi I'm <span className="typed-role">{typedText}</span>
-				    <span className="typing-cursor">|</span>
-				  </small>
+					  Hi I'm{" "}
+					  <span className="typed-role">
+					    {typedText}
+					    <span className="typing-cursor">|</span>
+					  </span>
+					</small>
 				  Rajkumar Thanudhasan
 				</h1>
               <p>
