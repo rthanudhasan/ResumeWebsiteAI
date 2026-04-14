@@ -80,14 +80,28 @@ export default function Home() {
               <p>
                 As a seasoned RPA professional, I specialize in designing and implementing automation solutions that drive business efficiency, reduce costs, and enhance productivity. <span>With a proven track record of delivering high-impact results, including $500,000 in annual expense reductions and 95% automation success rates, I excel at bridging technical and business processes to drive digital transformation.</span>
               </p>
-              <div className="call-to-action">
-                <a href="./Rajkumar_Thanudhasan_Resume.pdf" className="button black">
-                  View Resume
-                </a>
-                <a href="mailto:rajkumar.thanudhasan@gmail.com" className="button white">
-                  Contact Me
-                </a>
-              </div>
+            <div className="call-to-action">
+			  <a
+			    href="/Rajkumar_Thanudhasan_Resume.pdf"
+			    target="_blank"
+			    rel="noopener noreferrer"
+			    className="button black"
+			  >
+			    View Resume
+			  </a>
+
+			  <a
+			    href="/Rajkumar_Thanudhasan_Resume.pdf"
+			    download="Rajkumar_Thanudhasan_Resume.pdf"
+			    className="button blue-outline"
+			  >
+			    Download Resume
+			  </a>
+
+			  <a href="mailto:rajkumar.thanudhasan@gmail.com" className="button white">
+			    Contact Me
+			  </a>
+			</div>
               <div className="social-links">
                 <a href="#">
                   <img src="./imgs/github.png" alt="GitHub" width="48" />
