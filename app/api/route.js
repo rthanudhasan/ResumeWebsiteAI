@@ -1,32 +1,95 @@
-import { OpenAIClient, AzureKeyCredential } from '@azure/openai';
 import { NextResponse } from 'next/server';
 
-const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
-const apiKey = process.env.AZURE_OPENAI_API_KEY;
-const model = process.env.AZURE_OPENAI_MODEL;
+const apiKey = process.env.GEMINI_API_KEY;
+const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
-export async function POST(req){
-	
-	const { messages } = await req.json();
+export async function POST(req) {
+  try {
+    if (!apiKey) {
+      return NextResponse.json(
+        { message: 'Server is missing GEMINI_API_KEY.' },
+        { status: 500 }
+      );
+    }
 
-	const client = new OpenAIClient(endpoint, new AzureKeyCredential(apiKey));
+    const { messages } = await req.json();
 
-	messages.unshift({
-		role: 'system',
-		content: `You are PortfolioGPT, answering only questions based on the resume provided.
+    const systemPrompt = `You are PortfolioGPT, answering only questions based on the resume provided.
+
 Resume:
 ${DATA_RESUME}
 
-Help users learn more about Raj from his resume.`
-	})
+Help users learn more about Raj from his resume. If the answer is not in the resume, say that you do not see that information in the resume.`;
 
-	const response = await client.getChatCompletions(model, messages, {
-		maxTokens: 128,
-	})
+    const conversation = Array.isArray(messages)
+      ? messages
+          .map((m) => {
+            const role =
+              m.role === 'assistant'
+                ? 'Assistant'
+                : m.role === 'system'
+                ? 'System'
+                : 'User';
 
-	return NextResponse.json({ 
-		message: response.choices[0].message.content
-	 })
+            return `${role}: ${typeof m.content === 'string' ? m.content : ''}`;
+          })
+          .join('\n')
+      : '';
+
+    const prompt = `${systemPrompt}
+
+Conversation:
+${conversation}
+
+Respond helpfully and briefly.`;
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(
+        model
+      )}:generateContent?key=${encodeURIComponent(apiKey)}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [{ text: prompt }],
+            },
+          ],
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Gemini API error:', data);
+      return NextResponse.json(
+        {
+          message:
+            data?.error?.message ||
+            'Gemini API request failed.',
+        },
+        { status: response.status }
+      );
+    }
+
+    const text =
+      data?.candidates?.[0]?.content?.parts
+        ?.map((p) => p.text || '')
+        .join('')
+        .trim() || 'No response returned.';
+
+    return NextResponse.json({ message: text });
+  } catch (error) {
+    console.error('Route error:', error);
+    return NextResponse.json(
+      { message: 'Unexpected server error.' },
+      { status: 500 }
+    );
+  }
 }
 
 const DATA_RESUME = `Rajkumar Thanudhasan
@@ -130,7 +193,7 @@ Environment: RIDE, PyCharm, SQL Server, GitHub, Sikuli, AutoIT.
 Summer Intern – RPA Analyst 
 Products: IMS (Inventory Management System) 
 Clients: In House Products
-● Implemented end-to-end robotic process automation (RPA) by combining different types of applications (Webbased, Windows-based, and mainframe) using UiPath. 
+● Implemented end-to-end robotic process automation (RPA) by combining different types of applications (Web-based, Windows-based, and mainframe) using UiPath. 
 ● Supported the development of product deliverables in the product roadmap with the functional requirements 
 documents. Also, gradually built a knowledge base of new and existing functionality to improve requirements 
 process efficiency. 
@@ -177,5 +240,4 @@ Products: In-house e-mail and SMS module
 ● Engineered user activity diagrams to chart the functional workflow across the product. 
 ● Have done many projects in PHP, one of which is an SMS and E-MAIL Module for Experts Academy (a consulting 
 firm located in Chennai) and two plug-in modules. 
-● Provided full-end testing support to all departments across SDLC.`
-
+● Provided full-end testing support to all departments across SDLC.`;
