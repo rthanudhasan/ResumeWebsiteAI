@@ -372,6 +372,24 @@ h3 {
 	}
 }
 
+.typed-role {
+	color: var(--blue-800);
+	font-weight: 700;
+}
+
+.typing-cursor {
+	display: inline-block;
+	margin-left: 2px;
+	animation: blinkCursor 0.9s step-end infinite;
+	color: var(--base-800);
+}
+
+@keyframes blinkCursor {
+	50% {
+		opacity: 0;
+	}
+}
+
 .work-experience {
 	.jobs {
 		display:flex;
