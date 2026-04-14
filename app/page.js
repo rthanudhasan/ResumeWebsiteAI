@@ -1,11 +1,51 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [ messageInput, setMessageInput ] = useState('');
+	  const typedPhrases = [
+    "RPA Lead",
+    "Automation Architect",
+    "UiPath Developer",
+    "AI + Automation Builder",
+  ];
+
+  const [typedText, setTypedText] = useState("");
+  const [typedIndex, setTypedIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = typedPhrases[typedIndex];
+    const speed = isDeleting ? 45 : 90;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        const nextText = currentPhrase.slice(0, charIndex + 1);
+        setTypedText(nextText);
+        setCharIndex((prev) => prev + 1);
+
+        if (nextText === currentPhrase) {
+          setTimeout(() => setIsDeleting(true), 1000);
+        }
+      } else {
+        const nextText = currentPhrase.slice(0, charIndex - 1);
+        setTypedText(nextText);
+        setCharIndex((prev) => prev - 1);
+
+        if (nextText === "") {
+          setIsDeleting(false);
+          setTypedIndex((prev) => (prev + 1) % typedPhrases.length);
+          setCharIndex(0);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, typedIndex]);
 
   const [messages, setMessages] = useState([
 		{
@@ -74,9 +114,13 @@ export default function Home() {
         <section className="hero container">
           <div className="hero-blue">
             <div>
-              <h1><small>Hi I'm</small>
-                Rajkumar Thanudhasan
-              </h1>
+              <h1>
+				  <small>
+				    Hi I'm <span className="typed-role">{typedText}</span>
+				    <span className="typing-cursor">|</span>
+				  </small>
+				  Rajkumar Thanudhasan
+				</h1>
               <p>
                 As a seasoned RPA professional, I specialize in designing and implementing automation solutions that drive business efficiency, reduce costs, and enhance productivity. <span>With a proven track record of delivering high-impact results, including $500,000 in annual expense reductions and 95% automation success rates, I excel at bridging technical and business processes to drive digital transformation.</span>
               </p>
